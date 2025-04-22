@@ -6,7 +6,7 @@ const validateMenuItem = require('../middleware/validateMenuItem');
 const router = express.Router();
 const ordersDB = new Datastore({ filename: './db/orders.db', autoload: true });
 
-// POST– skapa ny order
+// POST  skapa ny order
 router.post('/', validateInput, validateMenuItem, (req, res) => {
   const { userId } = req.body;
   const { validatedItems, total } = req;
@@ -34,7 +34,7 @@ router.post('/', validateInput, validateMenuItem, (req, res) => {
   });
 });
 
-// GET :userId – hämta historik
+// GET userId  hämta historik
 router.get('/:userId', (req, res) => {
   const userId = req.params.userId;
 

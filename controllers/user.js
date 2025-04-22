@@ -5,9 +5,7 @@ const { nanoid } = require('nanoid');
 const router = express.Router();
 const usersDB = new Datastore({ filename: './db/users.db', autoload: true });
 
-/**
- * Skapa användare
- */
+//Skapa användare 
 router.post('/', (req, res) => {
   const { username, password } = req.body;
 
@@ -19,7 +17,7 @@ router.post('/', (req, res) => {
   const newUser = {
     id: userId,
     username,
-    password, // ingen krypterad lösen
+    password, // ingen lösen
     createdAt: new Date()
   };
 
@@ -33,9 +31,8 @@ router.post('/', (req, res) => {
   });
 });
 
-/**
- * Login – kontrollera användarnamn + lösenord
- */
+
+ //  kontrollera användarnamn + lösenord 
 router.post('/login', (req, res) => {
   const { username, password } = req.body;
 
